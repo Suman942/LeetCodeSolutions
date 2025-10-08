@@ -1,0 +1,14 @@
+fun containsDuplicate(): Boolean {
+val nums = intArrayOf(1,2,3,1)
+    val map = mutableMapOf<Int,Int>()
+
+    for (i in nums){
+        map[i] = map.getOrDefault(i,0) + 1
+        if (map[i]!! > 1) return true
+    }
+    return false
+
+}
+
+Time O(n)
+Space O(n)

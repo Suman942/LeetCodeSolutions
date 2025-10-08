@@ -1,0 +1,36 @@
+
+fun topKFrequent() {
+    val nums = intArrayOf(1, 1, 1, 2, 2, 3)
+    val k = 2
+    val map = HashMap<Int, Int>()
+
+// 1. store the frequency of each element
+    for (i in nums.indices) {
+        map[nums[i]] = map.getOrDefault(nums[i], 0) + 1
+    }
+    println(map) // {1=3, 2=2, 3=1}
+
+// 2. putt the elements int bucket based on frequency
+    val bucket = Array(nums.size + 1) { mutableListOf<Int>() }
+    for ((k, v) in map) {
+        bucket[v].add(k)
+    }
+    println(bucket.toList()) // [[], [3], [2], [1], [], [], []]
+
+// 3. reverse loop to get k most element
+    val ans = ArrayList<Int>(k)
+    for (i in bucket.size - 1 downTo 1) {
+
+        if (bucket[i].isNotEmpty()) {
+            for (num in bucket[i]) {
+                ans.add(num)
+                if (ans.size == k) {
+                    println(ans.toList())
+                    return
+                }
+            }
+        }
+    }
+
+    println(ans.toList()) // [1, 2]
+}

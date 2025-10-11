@@ -1,0 +1,18 @@
+fun twoSum():IntArray{
+    val nums = intArrayOf(2,7,11,15,8)
+    val target = 10
+    val map = mutableMapOf<Int,Int>()
+
+    for (i in nums.indices){
+        val compliment = target - nums[i]
+        if (map.containsKey(compliment)){
+            println("${map[compliment]!!}  $i")
+            return intArrayOf(map[compliment]!!,i)
+        }
+        map[nums[i]] = i
+    }
+    return intArrayOf()
+}
+
+
+Time and Space Complexity is O(n)

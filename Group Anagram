@@ -1,0 +1,22 @@
+fun groupAnagram() {
+    val map = mutableMapOf<String, MutableList<String>>()
+    val strs = arrayOf("eat", "tea", "tan", "ate", "nat", "bat")
+
+    // 1. iterate and create an array size 26 with all zeros
+    for (word in strs) {
+        val arr = IntArray(26)
+        // iterate over each element
+        for (ch in word) {
+            // each char is subtracted by ASCI of 'a' that is 97 and increment
+            arr[ch - 'a']++ // the index is incremented from 0 to 1
+        }
+        // separating value with "#" example //1#0#0#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#1#0#0#0#0#0#0
+        val key = arr.joinToString("#")
+        map.getOrPut(key){ mutableListOf() }.add(word)
+    }
+    println(map.values)
+}
+
+
+Time complexity = O(n * k)
+Space complexity = O(n * k)

@@ -1,0 +1,28 @@
+fun encodeDecode() {
+    val input = arrayOf("neet", "code", "love", "you")
+    val encodedList = mutableListOf<String>()
+    val encodedMap = mutableMapOf<String,String>()
+    val decodedList = mutableListOf<String>()
+    
+    // encode
+    for (str in input) {
+        val arr = IntArray(26)
+        for (ch in str) {
+            arr[ch - 'a']++
+        }
+       val key = arr.joinToString("#")
+        encodedMap[str] = key
+        encodedList.add(key)
+
+    }
+
+    // decode
+    for (item in encodedList){
+        if(encodedMap.containsValue(item)){
+           val key = encodedMap.entries.find { it.value == item }?.key
+            key?.let { decodedList.add(it) }
+
+        }
+    }
+
+}

@@ -1,9 +1,9 @@
 fun encodeDecode() {
-    val input = arrayOf("neet", "code", "love", "you")
+    val input = arrayOf("neet", "code", "love", "you","love")
     val encodedList = mutableListOf<String>()
-    val encodedMap = mutableMapOf<String,String>()
+    val encodedMap = mutableMapOf<String,ArrayDeque<String>>()
     val decodedList = mutableListOf<String>()
-    
+
     // encode
     for (str in input) {
         val arr = IntArray(26)
@@ -11,18 +11,14 @@ fun encodeDecode() {
             arr[ch - 'a']++
         }
        val key = arr.joinToString("#")
-        encodedMap[str] = key
+        encodedMap.getOrPut(key){ArrayDeque()}.addLast(str)
         encodedList.add(key)
 
     }
 
     // decode
     for (item in encodedList){
-        if(encodedMap.containsValue(item)){
-           val key = encodedMap.entries.find { it.value == item }?.key
-            key?.let { decodedList.add(it) }
-
-        }
+        val data = encodedMap[item]!!.removeFirst()
+        decodedList.add(data)
     }
-
 }

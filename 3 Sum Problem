@@ -1,0 +1,37 @@
+  val nums = arrayOf(-1, 0, 1, 2, -1, -4)
+    val result = mutableListOf<List<Int>>()
+    nums.sort() // [-4, -1, -1, 0, 1, 2]
+    println(nums.toList())
+
+    val n = nums.size
+
+    for (i in 0 until  n-2){
+
+        if (i > 0 && nums[i] == nums[i -1]) continue // checking current value of i and previous value of i should not be same to avoid duplicates
+        var j = i + 1
+        var k = n - 1
+
+        while (j < k){
+            var sum = nums[i] + nums[j] + nums[k]
+          
+            if(sum < 0){
+                j++
+            }else if (sum > 0){
+                k--
+            }else{
+                val output = arrayOf(nums[i],nums[j],nums[k])
+                result.add(output.toList())
+                println("output: ${output.toList()}")
+                j++
+                k--
+                while (j < k && nums[j] == nums[j-1]){
+                    j++
+                }
+            }
+        }
+    }
+
+
+
+    Time complexity -> O(n logn) + O(n2)
+    

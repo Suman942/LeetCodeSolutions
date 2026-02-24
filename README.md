@@ -1,7 +1,7 @@
 
-# 🧠 Blind 75 LeetCode Solutions
+# 🧠 LeetCode Solutions
 
-A curated collection of my solutions to the **Blind 75** — a set of 75 must-solve LeetCode problems that cover key data structures and algorithms frequently asked in technical interviews.
+A curated collection of my solutions — a set of must-solve LeetCode problems that cover key data structures and algorithms frequently asked in technical interviews.
 
 ## 🚀 Overview
 This repository contains clean, efficient, and well-commented solutions to the Blind 75 questions.  

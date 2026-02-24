@@ -17,3 +17,26 @@
 
 
 // optimal approach
+fun main(args: Array<String>) {
+  val arr = intArrayOf(1,2,3,4,5)
+  val queries = arrayOf(
+    0 to 2,
+    1 to 4,
+    3 to 4
+  )
+    // prefix  = sum of all all elements
+    val prefix = IntArray(arr.size)
+    prefix[0] = arr[0]
+    for (i in 1..<arr.size){
+      prefix[i] = prefix[i - 1] + arr[i]
+    }
+  // sum based on the query
+    for ((L,R) in queries){
+      val sum = if (L==0){
+        prefix[R]
+      }else{
+        prefix[R] - prefix[L-1]
+      }
+      println(sum)
+    }
+}

@@ -18,3 +18,30 @@ fun main(args: Array<String>) {
   println("$temp -> $max")
 
 }
+
+// optimal approach with Kdane's algo
+🧾 Step-by-Step Logic
+1.For each number:
+2.Add it to currentSum
+3.Update maxSum
+4.If currentSum < 0, reset it to 0
+
+fun main(args: Array<String>) {
+  val arr = intArrayOf(1,2,-6,3,4,-5)
+  var max = Int.MIN_VALUE
+  val temp = mutableListOf<Int>()
+  var sum = 0
+  for (i in arr.indices){
+   sum += arr[i]
+    if (sum > max){
+      max = sum
+      temp.add(arr[i])
+    }
+    if (sum < 0){
+      sum = 0
+    }
+
+  }
+  println("$temp -> $max")
+
+}

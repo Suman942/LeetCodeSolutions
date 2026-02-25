@@ -1,0 +1,18 @@
+fun main(args: Array<String>) {
+  val arr = intArrayOf(7,1,5,3,6,4)
+  var minPrice = Int.MAX_VALUE
+  var maxProfit = 0
+
+  for (price in arr){
+
+    if (price < minPrice){
+      minPrice = price
+    }else{
+      val profit = price - minPrice
+      if (profit > maxProfit){
+        maxProfit = profit
+      }
+    }
+  }
+    println(maxProfit)
+}

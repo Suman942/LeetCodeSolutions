@@ -1,0 +1,19 @@
+fun main(args: Array<String>) {
+  val arr = intArrayOf(0,0,1,1,3,3,12)
+  val value = 3
+    var i = 0
+ for (j in arr.indices){
+     if (arr[j] != value){
+         arr[i] = arr[j]
+         i++
+     }
+ }
+    while (i < arr.size){
+        arr[i] = -1
+        i++
+    }
+
+
+  println(arr.toList())
+
+}

@@ -1,0 +1,15 @@
+fun main(args: Array<String>) {
+  val arr = intArrayOf(0,0,1,1,3,3,12)
+  var i = 0
+
+ for (j in 1 until arr.size){
+    if (arr[j] != arr[i]){
+      i++
+      arr[i] = arr[j]
+    }
+ }
+  
+
+  println(arr.toList())
+
+}

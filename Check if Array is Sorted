@@ -1,0 +1,16 @@
+fun main(args: Array<String>) {
+  val arr = intArrayOf(1,2,3)
+ var isSorted = true
+
+    for (i in 0..<arr.size-1){
+        println(i)
+        if (arr[i]>arr[i+1]){
+            isSorted = false
+            break
+        }
+    }
+
+println(isSorted)
+
+
+}

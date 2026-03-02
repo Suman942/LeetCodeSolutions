@@ -1,0 +1,19 @@
+// Brute force approach
+fun main(ags: Array<String>) {
+  val arr = intArrayOf(0,1,2,4,6,7)
+  val n = arr.size
+
+  for (num in 0..n){
+     var isFound = false
+    for (i in arr.indices){
+      if (arr[i] == num){
+        isFound = true
+        break
+      }
+    }
+    if (!isFound){
+      println(num)
+      break
+    }
+  }
+}

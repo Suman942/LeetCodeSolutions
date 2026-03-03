@@ -17,3 +17,21 @@ fun main(ags: Array<String>) {
     }
   }
 }
+
+
+// optimal solution
+fun main(ags: Array<String>) {
+  val arr = intArrayOf(3,0,1)
+  val n = arr.size
+  var xorResult = 0
+
+  for (num in 0..n){
+    xorResult = xorResult xor num
+  }
+  println(xorResult)
+
+  for (value in arr){
+    xorResult = xorResult xor value
+    println(xorResult)
+  }
+}

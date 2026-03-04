@@ -1,0 +1,18 @@
+// Brute force approach
+class Solution {
+    fun majorityElement(nums: IntArray): Int {
+        val n = nums.size
+        for(i in nums){
+            var frequency = 0
+            for(element in nums){
+                if(i == element){
+                    frequency++
+                }
+            }
+            if(frequency > n/2){
+                return i
+            }
+        }
+        return -1
+    }
+}

@@ -16,3 +16,24 @@ class Solution {
         return -1
     }
 }
+
+// optimized  Moore's Voting Algorithm
+class Solution {
+    fun majorityElement(nums: IntArray): Int {
+        val n = nums.size
+        var frequency = 0
+        var answer = 0
+        for(i in 0 until n){
+           if(frequency == 0){
+            answer = nums[i]
+           }
+           if(answer == nums[i]){
+            frequency++
+           }else{
+            frequency--
+           }
+        
+        }
+        return answer
+    }
+}
